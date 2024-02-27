@@ -1,1 +1,3 @@
-"# Full-Stack-Open" 
+Full Stack Open submissions
+
+https://fullstackopen.com/en/
