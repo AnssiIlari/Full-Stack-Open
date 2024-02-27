@@ -1,4 +1,4 @@
-Here is a simple flow chart:
+Chart for new note:
 
 ```mermaid
 sequenceDiagram
