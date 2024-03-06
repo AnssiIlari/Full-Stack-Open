@@ -5,17 +5,44 @@ const App = () => {
   const [good, setGood] = useState(0)
   const [neutral, setNeutral] = useState(0)
   const [bad, setBad] = useState(0)
+  const [total, setTotal] = useState(0)
+  const [average, setAverage] = useState(0)
+  const [positive, setPositive] = useState(0)
 
   const handleGood = () => {
-    setGood(good + 1)
+    const newGood = good + 1;
+    const newTotal = total + 1;
+    const newAverage = (newGood - bad) / newTotal;
+    const newPositive = (newGood / newTotal) * 100;
+  
+    setGood(newGood);
+    setTotal(newTotal);
+    setAverage(newAverage);
+    setPositive(newPositive);
   }
-
+  
   const handleNeutral = () => {
-    setNeutral(neutral + 1)
+    const newNeutral = neutral + 1;
+    const newTotal = total + 1;
+    const newAverage = (good - bad) / newTotal;
+    const newPositive = (good / newTotal) * 100;
+  
+    setNeutral(newNeutral);
+    setTotal(newTotal);
+    setAverage(newAverage);
+    setPositive(newPositive);
   }
 
   const handleBad = () => {
-    setBad(bad + 1)
+    const newBad = bad + 1;
+    const newTotal = total + 1;
+    const newAverage = (good - newBad) / newTotal;
+    const newPositive = (good / newTotal) * 100;
+  
+    setBad(newBad);
+    setTotal(newTotal);
+    setAverage(newAverage);
+    setPositive(newPositive);
   }
 
   return (
@@ -28,6 +55,9 @@ const App = () => {
       <p>good {good}</p>
       <p>neutral {neutral}</p>
       <p>bad {bad}</p>
+      <p>all {total}</p>
+      <p>average {average}</p>
+      <p>positive {positive}%</p>
     </div>
   )
 }
