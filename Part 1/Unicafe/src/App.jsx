@@ -1,5 +1,11 @@
 import { useState } from 'react'
 
+const Button = ({ handleClick, text }) => (
+  <button onClick={handleClick}>
+    {text}
+  </button>
+)
+
 const Statistics = (props) => {
   if (props.total === 0) {
     return (
@@ -9,7 +15,7 @@ const Statistics = (props) => {
       </div>
     )
   }
-  
+
   return (
     <div>
       <h1>statistics</h1>
@@ -71,9 +77,9 @@ const App = () => {
   return (
     <div>
       <h1>give feedback</h1>
-      <button onClick={handleGood}>good</button>
-      <button onClick={handleNeutral}>neutral</button>
-      <button onClick={handleBad}>bad</button>
+      <Button handleClick={() => handleGood()} text="good" />
+      <Button handleClick={() => handleNeutral()} text="neutral" />
+      <Button handleClick={() => handleBad()} text="bad" />
       <Statistics {...{good, neutral, bad, total, average, positive}} />
     </div>
   )
